@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="ryProje02.form.ogrenciListe"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ryProje02.form"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="550" Loaded="ogrenciListe_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50">
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Background="White" Grid.Row="0">
+            <DataGrid x:Name="dgListe" ItemsSource="{Binding}" BorderBrush="{x:Null}" BorderThickness="0" Background="{x:Null}" 
+                      Foreground="#FF042263"   AutoGenerateColumns="False" FontFamily="verdana" FontSize="12" FontStyle="Normal"  
+                      Margin="10,10,10,10"  RowHeight="30" CanUserAddRows="False" CanUserDeleteRows="False" CanUserSortColumns="True"
+                      CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True" HorizontalGridLinesBrush="Gray" 
+                      VerticalGridLinesBrush="Gray" Style="{DynamicResource dataGridStil}" Width="auto" HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding ogrenciNo}" Header="Öğrenci No" IsReadOnly="True"  />                    
+                    <DataGridTextColumn Binding="{Binding ad}" Header="Öğrenci Adı"/>
+                    <DataGridTextColumn Binding="{Binding soyad}" Header="Soyadı" />
+                    <DataGridTextColumn Binding="{Binding bolum}" Header="Bölümü" />
+                    <DataGridTextColumn Binding="{Binding dogumYeri}" Header="Doğum Yeri" />
+                    <DataGridTextColumn Binding="{Binding babaAd}" Header="Baba Adı" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Border Background="White" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button  Style="{DynamicResource userFormButonStil}" Content="Öğrenci Ekle"></Button>
+            </StackPanel>
+
+
+        </Border>
+    </Grid>
+</UserControl>

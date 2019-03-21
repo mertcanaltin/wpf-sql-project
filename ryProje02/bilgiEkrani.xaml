@@ -1,0 +1,85 @@
+﻿<Window x:Name="bildirimEkrani" x:Class="ryProje02.bilgiEkrani"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ryProje02"
+        mc:Ignorable="d"
+        Title="bilgiEkrani" Height="230.143" Width="362.91" WindowStyle="None" 
+        AllowsTransparency="True" Background="{x:Null}" Loaded="bilgiEkrani_Loaded">
+    <Window.Triggers >
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:0.7" Storyboard.TargetProperty="Opacity"
+                                     From="0.0" To=" 1.0"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Canvas Margin="0,0,10,10">
+            <Label Content="Bilgi Ekranı" Canvas.Left="81" Canvas.Top="28" FontFamily="Verdana"
+                   Foreground="White" FontSize="14" Height="30" Panel.ZIndex="3" FontWeight="Bold"/>
+            <Label x:Name="bilgiEkraniIcerik" Content="Bilgi Ekranı Bildirim Mesajı" Canvas.Left="51"
+                   Canvas.Top="63" FontFamily="Verdana" Foreground="Navy" Panel.ZIndex="3" 
+                   FontSize="16" VerticalContentAlignment="Center" Height="122" Width="273"/>
+            <Button Content="X" x:Name="bilgiEkraniKapat" FontSize="14" Click="bilgiEkraniKapat_Click" 
+                    Canvas.Left="308" Canvas.Top="28" Style="{DynamicResource formButonStil}" 
+                    Panel.ZIndex="3" Height="30" Width="30"/>
+            <Image Source="images/icon/onay.png" x:Name="olumluResim" Panel.ZIndex="3" 
+                   Canvas.Left="22" Canvas.Top="25"/>
+            <Image Source="images/icon/uyari.png" x:Name="olumsuzResim" Panel.ZIndex="3" 
+                   Canvas.Left="24" Canvas.Top="24"/>
+            <Ellipse x:Name="olumluMesaj" Height="60" Width="60" Canvas.Left="10" 
+                     Canvas.Top="13" Panel.ZIndex="2" StrokeThickness="5" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <RotateTransform/>
+                </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF134187" Offset="0.963"/>
+                        <GradientStop Color="White" Offset="0.963"/>
+                        <GradientStop Color="#FFF1F2F3" Offset="0.937"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4CAF50" Offset="0.277"/>
+                        <GradientStop Color="White" Offset="0.277"/>
+                        <GradientStop Color="#FF4CAF50" Offset="0.704"/>
+                        <GradientStop Color="White" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+            <Border x:Name="mesajBaslik" Background="Navy" Height="30" Width="300" 
+                    Canvas.Left="38" Canvas.Top="28" Panel.ZIndex="1"/>
+            <Border Background="White" Height="170" Width="300" Canvas.Left="38" 
+                    Canvas.Top="28"/>
+            <Ellipse x:Name="olumsuzMesaj" Height="60" Width="60" Canvas.Left="10" 
+                     Canvas.Top="12" Panel.ZIndex="2" StrokeThickness="5" RenderTransformOrigin="0.5,0.5">
+                <Ellipse.RenderTransform>
+                    <RotateTransform/>
+                </Ellipse.RenderTransform>
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#FF134187" Offset="0.963"/>
+                        <GradientStop Color="White" Offset="0.963"/>
+                        <GradientStop Color="#FFF1F2F3" Offset="0.937"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="navy" Offset="0.277"/>
+                        <GradientStop Color="White" Offset="0.277"/>
+                        <GradientStop Color="navy" Offset="0.704"/>
+                        <GradientStop Color="White" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Ellipse.Stroke>
+            </Ellipse>
+        </Canvas>
+    </Grid>
+</Window>

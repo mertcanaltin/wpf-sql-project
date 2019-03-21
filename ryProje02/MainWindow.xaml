@@ -1,0 +1,209 @@
+﻿<Window x:Class="ryProje02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ryProje02"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" 
+        Loaded="logoFormYukle">
+    <Grid Margin="10">
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="10" Direction="265" Opacity="0.45"/>
+        </Grid.Effect>
+        <!-- form satirlari -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!-- form sütunları -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" x:Name="solMenuSutun"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!-- sol üst baslik -->
+        <Border Grid.Row="0" Grid.Column="0" Background="#FFD6DBE9" x:Name="formBaslik" 
+                MouseDown="formBaslik_MouseDown">
+            <DockPanel HorizontalAlignment="Left">
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/images/icon/prg01.png"/>
+                            <Setter Property="Width" Value="24"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="/images/icon/prg02.png"/>
+                                    <Setter Property="Width" Value="28"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Label x:Name="lblBaslik" Content="Programmer" FontStyle="Normal" FontFamily="verdana" FontSize="14"
+                        FontWeight="Bold" Foreground="blue" HorizontalContentAlignment="Left" 
+                       VerticalContentAlignment="Stretch" Width="120" />
+            </DockPanel>
+        </Border>
+        <!-- sağ üst baslik -->
+        <Border Grid.Row="0" Grid.Column="1" Background="#FFD6DBE9" MouseDown="formBaslik_MouseDown">
+            <DockPanel HorizontalAlignment="Right" Width="110">
+                <Button  Content="__" Width="35" Style="{DynamicResource formButonStil}" 
+                         x:Name="btnSimge" Click="btnSimge_Click"/>
+                <Button  Content=" ■ " Width="35" Style="{DynamicResource formButonStil}"
+                         x:Name="btnBuyut" Click="btnBuyut_Click" />
+                <Button  Content="X" Width="35" Style="{DynamicResource formButonStil}" 
+                         x:Name="btnKapat" Click="btnKapat_Click"/>
+            </DockPanel>
+        </Border>
+        <!-- sol orta bilgi -->
+        <Border Grid.Row="1" Grid.Column="0" Background="#FF133185">
+            <DockPanel>
+                <Image x:Name="hamburgerMenu" MouseDown="hamburgerMenu_MouseDown" Source="images/icon/ogrenci.png" Width="48"/>
+            </DockPanel>
+        </Border>
+        <!-- form tanimlama  -->
+        <Border Grid.Row="1" Grid.Column="1" Background="#FF133185">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0">
+                    <StackPanel VerticalAlignment="Center" Margin="30,0,0,0">
+                        <DockPanel>
+                            <Label Content="BİLGİSAYAR PROGRAMCILIĞI" Foreground="white" 
+                                   FontFamily="verdana" FontSize="20" FontWeight="Bold" 
+                                   FontStyle="Normal" VerticalContentAlignment="Center"
+                                   HorizontalContentAlignment="Center"/>
+                        </DockPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <DockPanel>
+                                <Label Content="Aktif Öğrenci Sayısı =" Foreground="White" 
+                                       FontSize="12" FontStyle="Normal" FontFamily="verdana"
+                                       FontWeight="Bold"/>
+                                <Label x:Name="lblOgrenciSayisi" Content="165" 
+                                       FontWeight="Bold" FontSize="12" Foreground="#FFDD5629" 
+                                       Background="#00000000"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label Content="Mezun Öğrenci Sayısı =" Foreground="White" 
+                                       FontSize="12" FontFamily="verdana"/>
+                                <Label Content="688" Foreground="Green" FontSize="12" 
+                                       FontFamily="verdana"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1">
+                    <StackPanel Margin="0,20,0,0">
+                        <Image Source="/images/icon/prg02.png" Width="48" Height="48" 
+                               VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <Label x:Name="lblKullanAd" Content="BIP" 
+                               VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                               Foreground="Yellow" FontFamily="verdana" FontSize="14" FontWeight="Bold"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+        <!-- sol menu  -->
+        <Border Grid.Row="2" Grid.Column="0" Background="#FF133185">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="290"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0">
+                    <StackPanel>
+                        <ToggleButton x:Name="btnYeni" Height="50" Style="{DynamicResource toggleButonStil}" Click="btnYeni_Click">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/yeni.png" Width="32"/>
+                                <Label x:Name="lblYeniMenu" Content="Yeni" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton x:Name="btnListe" Click="btnListe_Click" Height="50" Style="{DynamicResource toggleButonStil}">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/list.png" Width="32"/>
+                                <Label x:Name="lblListeMenu" Content="Liste" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton x:Name="btnGuncelle" Height="50" Style="{DynamicResource toggleButonStil}" Click="btnGuncelle_click">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/update.png" Width="32"/>
+                                <Label x:Name="lblGuncelMenu" Content="Güncelle" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <ToggleButton x:Name="btnKapat2" Click="btnKapat_Click" Height="50" Style="{DynamicResource toggleButonStil}">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/close.png" Width="32"/>
+                                <Label x:Name="lblKapatMenu" Content="Kapat" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </ToggleButton>
+                        <!--<Button x:Name="btnYeni" Height="50" Style="{DynamicResource menuButonStil}" Click="btnYeni_Click">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/yeni.png" Width="32"/>
+                                <Label x:Name="lblYeniMenu" Content="Yeni" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </Button>
+                        <Button x:Name="btnListe" Click="btnListe_Click" Height="50" Style="{DynamicResource menuButonStil}">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/list.png" Width="32"/>
+                                <Label x:Name="lblListeMenu" Content="Liste" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </Button>
+                        <Button x:Name="btnGuncelle" Height="50" Style="{DynamicResource menuButonStil}" Click="btnGuncelle_click">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/update.png" Width="32"/>
+                                <Label x:Name="lblGuncelMenu" Content="Güncelle" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </Button>
+                        <Button x:Name="btnKapat2" Click="btnKapat_Click" Height="50" Style="{DynamicResource menuButonStil}">
+                            <DockPanel Width="120" Margin="5,0,0,0" >
+                                <Image Source="/images/icon/close.png" Width="32"/>
+                                <Label x:Name="lblKapatMenu" Content="Kapat" FontFamily="Verdana" FontSize="14" 
+                                       FontWeight="Bold" BorderBrush="WhiteSmoke" Foreground="White"/>
+                            </DockPanel>
+                        </Button>-->
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1">
+                    <StackPanel>
+                        <Canvas>
+                            <Border x:Name="borderSurumBilgi" Canvas.Left="30" Canvas.Top="120" CornerRadius="10,10,10,10" Cursor="Hand">
+                                <Label x:Name="lblSurumBilgi" Content="MMYO 2.1.5" Foreground="White" Width="90" FontFamily="verdana"
+                                   FontSize="12" FontStyle="Normal" FontWeight="Bold"
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" Height="28"/>
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="#FF3945B6"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FF06579B" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </Canvas>
+                    </StackPanel>
+
+
+                </Border>
+            </Grid>
+        </Border>
+        <!-- form alanı -->
+        <Border Grid.Row="1" Grid.Column="1" Background="#FFEEF0F6" Margin="4.6,99.6,-5,0" Grid.RowSpan="2">
+            <Grid x:Name="formGoruntuAlan">
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
